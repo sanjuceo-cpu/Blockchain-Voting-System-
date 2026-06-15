@@ -52,22 +52,6 @@ function App() {
   const [winner, setWinner] = useState("");
   const [totalVotes, setTotalVotes] = useState(0);
 
-  useEffect(() => {
-  const checkWallet = async () => {
-    if (!window.ethereum) return;
-
-    const accounts = await window.ethereum.request({
-      method: "eth_accounts",
-    });
-
-    if (accounts.length > 0) {
-      connectWallet();
-    }
-  };
-
-  checkWallet();
-}, [connectWallet]);
-
   const connectWallet = async () => {
     try {
       if (!window.ethereum) {
