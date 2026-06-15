@@ -66,7 +66,7 @@ function App() {
   };
 
   checkWallet();
-}, []);
+}, [connectWallet]);
 
   const connectWallet = async () => {
     try {
