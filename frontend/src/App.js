@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { ethers } from "ethers";
 import { CONTRACT_ADDRESS, CONTRACT_ABI } from "./contract";
 
@@ -52,7 +52,7 @@ function App() {
   const [winner, setWinner] = useState("");
   const [totalVotes, setTotalVotes] = useState(0);
 
-  const connectWallet = async () => {
+  const connectWallet = useCallback(async () => {
     try {
       if (!window.ethereum) {
         alert("Please install MetaMask");
@@ -76,7 +76,7 @@ if (!accounts.length) return;
     } catch (error) {
       console.error(error);
     }
-  };
+  },[]);
   useEffect(() => {
   const checkWallet = async () => {
     if (!window.ethereum) return;
