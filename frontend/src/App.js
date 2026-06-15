@@ -91,7 +91,7 @@ if (!accounts.length) return;
   };
 
   checkWallet();
-}, []);
+}, [connectWallet]);
 
   const loadCandidates = async (signer) => {
     try {
